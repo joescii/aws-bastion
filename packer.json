@@ -1,0 +1,30 @@
+{
+  "variables": {
+    "aws_region": "us-west-1",
+    "source_ami": "ami-896d93cd",
+    "timestamp": null
+  },
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "region": "{{ user `aws_region` }}",
+      "source_ami": "{{ user `source_ami` }}",
+      "instance_type": "t2.micro",
+      "ssh_username": "ubuntu",
+      "associate_public_ip_address": "true",
+      "ami_groups": ["all"],
+      "ami_name": "bastion-{{user `timestamp`}}",
+      "tags": {
+        "Name": "bastion",
+        "Timestamp": "{{user `timestamp`}}",
+        "Tools": "MySQL"
+      }
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "mysql.sh"
+    }
+  ]
+}

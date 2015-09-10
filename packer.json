@@ -1,6 +1,6 @@
 {
   "variables": {
-    "aws_region": "us-west-1",
+    "aws_region": "us-east-1",
     "source_ami": "ami-896d93cd",
     "timestamp": null
   },
@@ -14,6 +14,16 @@
       "associate_public_ip_address": "true",
       "ami_groups": ["all"],
       "ami_name": "bastion-{{user `timestamp`}}",
+      "ami_regions": [
+        "us-west-2",
+        "us-west-1",
+        "eu-west-1",
+        "eu-central-1",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-northeast-1",
+        "sa-east-1"
+      ],
       "tags": {
         "Name": "bastion",
         "Timestamp": "{{user `timestamp`}}",

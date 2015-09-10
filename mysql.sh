@@ -2,9 +2,9 @@
 
 set -e
 
-set version="5.6.19"
-set target="mysql-${version}-linux-glibc2.5-x86_64"
-set targz="${target}.tar.gz"
+version="5.6.19"
+target="mysql-${version}-linux-glibc2.5-x86_64"
+targz="${target}.tar.gz"
 
 cd /home/ubuntu
 wget http://downloads.mysql.com/archives/get/file/${targz}

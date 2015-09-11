@@ -10,5 +10,11 @@ cd /home/ubuntu
 wget http://downloads.mysql.com/archives/get/file/${targz}
 gunzip -cdfv ${targz} | tar -vx 
 rm ${targz}
-echo "PATH=\$PATH:/home/ubuntu/${target}/bin/" >> .profile
-echo "PATH=\$PATH:/home/ubuntu/${target}/bin/" >> .bashrc
+
+pathUpdate="PATH=\$PATH:/home/ubuntu/${target}/bin/"
+
+echo ${pathUpdate} >> .profile
+echo ${pathUpdate} > tmp
+cat .bashrc >> tmp
+mv tmp .bashrc
+chmod 644 .bashrc

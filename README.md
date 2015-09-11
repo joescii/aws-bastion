@@ -20,3 +20,7 @@ If you trust me, you can water one of the public AMIs I have created.
 
 ## Build your own
 If you don't trust me, then simply clone this repo, `chmod 755 *.sh`, and `./codeship.sh` to build your own.
+
+### Tips for building your own
+You probably don't want the AMI to be public, so remove `"ami_groups": ["all"],` from `packer.json`.
+You probably don't want it copied to every AWS region, so remove elements from `"ami_regions":` in `packer.json` as desired.
